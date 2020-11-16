@@ -25,18 +25,12 @@ const LoginForm = (props) => {
       props.setEmail(login)
       componentUnmount()
     } catch (e) {
-      pageRefresh(e)
+        alert(`Check your credentials. Your input is ${e}.`)
     }
   }
 
   const componentUnmount = () => {
     props.setIsChecked(true)
-  }
-
-  const pageRefresh = (e) => {
-    alert(`Check your credentials. Your input is ${e}.`)
-        var l = window.location;
-        l.href= l.protocol + '//' + l.hostname + ( l.port ? ':' + l.port : '' )
   }
 
   return (
