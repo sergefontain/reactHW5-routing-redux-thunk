@@ -1,7 +1,10 @@
 import React from "react"
+import {Redirect} from "react-router-dom"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import { checkLoginPass } from "../../store/actions"
+import * as routes from "../../routes"
+
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
@@ -37,7 +40,8 @@ const LoginForm = (props) => {
 
   const pageRefresh = (e) => {
     alert(`Check your credentials. Your input is ${e}.`)
-    window.location.reload()
+    // window.location.reload()
+    return <Redirect to={routes.LOGIN} />
   }
 
   return (
