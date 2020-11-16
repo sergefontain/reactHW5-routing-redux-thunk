@@ -1,10 +1,7 @@
 import React from "react"
-import {Redirect} from "react-router-dom"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import { checkLoginPass } from "../../store/actions"
-import * as routes from "../../routes"
-
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
@@ -13,8 +10,6 @@ const mapDispatchToProps = (dispatch) =>
   )
 
 const LoginForm = (props) => {
-  console.log("LoginForm -> props", props)
-
   const [login, setLogin] = React.useState("")
   const [password, setPassword] = React.useState("")
 
@@ -40,15 +35,23 @@ const LoginForm = (props) => {
 
   const pageRefresh = (e) => {
     alert(`Check your credentials. Your input is ${e}.`)
-    // window.location.reload()
-    return <Redirect to={routes.LOGIN} />
+    var segmentCount = 1;
+        var l = window.location;
+        l.replace(
+            l.protocol + '//' + l.hostname + ( l.port ? ':' + l.port : '' ) +
+            l.pathname.split( '/' ).slice( 0, 1 + segmentCount ).join( '/' )
+        );
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <button type="submit">Submit</button>
       <input value={login} onChange={(e) => setLogin(e.target.value)} />
-      <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" />
+      <input
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        type="password"
+      />
     </form>
   )
 }
