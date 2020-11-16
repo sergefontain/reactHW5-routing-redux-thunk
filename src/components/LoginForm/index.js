@@ -35,11 +35,12 @@ const LoginForm = (props) => {
 
   const pageRefresh = (e) => {
     alert(`Check your credentials. Your input is ${e}.`)
-    var segmentCount = 1;
+    // var segmentCount = 1;
         var l = window.location;
         l.replace(
-            l.protocol + '//' + l.hostname + ( l.port ? ':' + l.port : '' ) +
-            l.pathname.split( '/' ).slice( 0, 1 + segmentCount ).join( '/' )
+            l.protocol + '//' + l.hostname + ( l.port ? ':' + l.port : '' )
+            //  +
+            // l.pathname.split( '/' ).slice( 0, 1 + segmentCount ).join( '/' )
         );
   }
 
