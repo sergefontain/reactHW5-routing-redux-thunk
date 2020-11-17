@@ -25,12 +25,17 @@ const LoginForm = (props) => {
       props.setEmail(login)
       componentUnmount()
     } catch (e) {
-        alert(`Check your credentials. Your input is ${e}.`)
+      alert(`Check your credentials. Your input is ${e}.`)
+      pageRefresh()
     }
   }
 
   const componentUnmount = () => {
     props.setIsChecked(true)
+  }
+  const pageRefresh = () => {
+    setLogin("")
+    setPassword("")
   }
 
   return (
